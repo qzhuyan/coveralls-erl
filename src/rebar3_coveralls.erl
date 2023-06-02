@@ -129,6 +129,7 @@ do_coveralls(ConvertAndSend, Get, GetLocal, MaybeSkip, Task) ->
           {coveralls_service_pull_request, service_pull_request, string},
           {coveralls_commit_sha,           commit_sha,           string},
           {coveralls_service_number,       service_number,       string},
+          {coveralls_service_job_number,   service_job_number,   string},
           {coveralls_flag_name,            flag_name,            string},
           {coveralls_parallel,             parallel,             boolean}],
   Report =
