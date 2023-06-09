@@ -112,7 +112,9 @@ send(Json, #s{poster=Poster, poster_init=Init}) ->
   R        = Poster(post, {?COVERALLS_URL, [], Type, Body}, [], []),
   {ok, {{_, ReturnCode, _}, _, Message}} = R,
   case ReturnCode of
-    200      -> ok;
+    200      ->
+      io:format("coverall returns: ~p~n", [R]),
+      ok;
     ErrCode  -> throw({error, {ErrCode, Message}})
   end.
 
