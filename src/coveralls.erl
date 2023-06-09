@@ -110,10 +110,10 @@ send(Json, #s{poster=Poster, poster_init=Init}) ->
   Type     = "multipart/form-data; boundary=" ++ Boundary,
   Body     = to_body(Json, Boundary),
   R        = Poster(post, {?COVERALLS_URL, [], Type, Body}, [], []),
+  io:format("coveralls returns: ~p~n", [R]),
   {ok, {{_, ReturnCode, _}, _, Message}} = R,
   case ReturnCode of
     200      ->
-      io:format("coverall returns: ~p~n", [R]),
       ok;
     ErrCode  -> throw({error, {ErrCode, Message}})
   end.
